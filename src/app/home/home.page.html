@@ -1,0 +1,46 @@
+<ion-slides mode="ios" pager="ios" scrollbar="ios">
+  <ion-slide>
+    <div class="slide slide-home">
+      <p class="titulo">Jan Ken Po</p>
+      <img src="../../assets/imagensJanKenPo/jankenpo.png" alt="icone">
+      <button class="iniciar-jogo" (click)="this.slides.slideNext()">INICIAR JOGO</button>
+    </div>
+  </ion-slide>
+
+  <ion-slide>
+    <div class="slide slide-battle">
+      <button class="btn btn-escolha">FAÇA SUA ESCOLHA</button>
+      <ion-radio-group class="group-options">
+        <div *ngFor="let option of arrayOptions; let i = index">
+          <ion-radio name="select" mode="md" slot="end" (click)="selectChoose(option, i)"></ion-radio>
+          <img src="../../assets/imagensJanKenPo/{{option.image}}.png" alt="icone">
+        </div>
+      </ion-radio-group>
+      <img [src]=campoDeBatalha alt="campo de batalha" class="campo-batalha">
+      <div class="estatisticas">
+        <label>Vitorias: {{ vitorias }}</label>
+        <label>Derrotas: {{ derrotas }}</label>
+        <label>Empates: {{ empates }}</label>
+        <label>Jogadas: {{ partidas }}</label>
+      </div>
+      <div class="botoes-footer">
+        <button class="btn btn-footer" (click)="ReiniciarCampos()">NOVA PARTIDA</button>
+        <button class="btn btn-footer" (click)="this.slides.slideNext()">INSTRUÇOES</button>
+      </div>
+    </div>
+  </ion-slide>
+
+  <ion-slide>
+    <div class="slide slide-home">
+      <img src="../../assets/imagensJanKenPo/jankenpo.png" alt="icone">
+      <p>Você deverá escolher uma das três opções:<br> pedra, papel ou tesoura</p>
+      <p>para definir o vencedor segue-se a seguinte regra:</p>
+      <p>►pedra 'quebra' a tesoura</p>
+      <p>►tesoura 'corta' o papel</p>
+      <p>►papel 'embrulha' a pedra</p>
+
+      <button class="iniciar-jogo" (click)="this.slides.slidePrev()">INICIAR JOGO</button>
+    </div>
+  </ion-slide>
+
+</ion-slides>
