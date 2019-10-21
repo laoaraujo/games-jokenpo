@@ -1,12 +1,12 @@
-import { Component, ViewChild } from '@angular/core';
-import { IonSlides } from '@ionic/angular';
+import { Component, ViewChild, OnInit } from '@angular/core';
+import { IonSlides, ToastController } from '@ionic/angular';
 
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
 })
-export class HomePage {
+export class HomePage implements OnInit {
   @ViewChild(IonSlides, { static: true }) slides: IonSlides;
   public arrayOptions: Array<any> = [
     {
@@ -28,9 +28,21 @@ export class HomePage {
   public derrotas: number = 0;
   public empates: number = 0;
   public partidas: number = 0;
+  
+  constructor(public toastController: ToastController) {}
+  
+  ngOnInit(): void {
+  }
 
-  constructor() {}
-
+  async presentToast() {
+    const toast = await this.toastController.create({
+      position: 'top',
+      message: '       • Lucas Araujo                       • Vinicius Fiorio',
+      duration: 2000,
+      color: 'dark'
+    });
+    toast.present();
+  }
   public selectChoose(value, id) {
     enum opcoes { 'pedra' = 0, 'papel' = 1, 'tesoura' = 2 }
     let random = Math.round(Math.random() * 2);

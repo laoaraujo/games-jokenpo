@@ -59,11 +59,15 @@ ion-slides{
             font-size: medium !important;
         }
     }
+    .center {
+        height: 80px;
+    }
     .estatisticas {
         display: flex;
         flex-direction: column;
         align-items: baseline;
         padding-left: 10%;
+        margin-top: 13%;
         label {
             margin: 3%;
             font-size: larger;
@@ -72,5 +76,11 @@ ion-slides{
     .campo-batalha {
         height: 17vh;
         margin: 8%;
+        margin-top: 21%;
     }
+}
+
+.color {
+    background: #097333;
+    color: #097333;
 }

@@ -3,20 +3,19 @@
     <div class="slide slide-home">
       <p class="titulo">Jan Ken Po</p>
       <img src="../../assets/imagensJanKenPo/jankenpo.png" alt="icone">
-      <button class="iniciar-jogo" (click)="this.slides.slideNext()">INICIAR JOGO</button>
+      <button class="iniciar-jogo" (click)="this.slides.slideNext();this.presentToast();">INICIAR JOGO</button>
     </div>
   </ion-slide>
 
   <ion-slide>
     <div class="slide slide-battle">
-      <button class="btn btn-escolha">FAÇA SUA ESCOLHA</button>
+      <img [src]=campoDeBatalha alt="campo de batalha" class="campo-batalha">
       <ion-radio-group class="group-options">
         <div *ngFor="let option of arrayOptions; let i = index">
           <ion-radio name="select" mode="md" slot="end" (click)="selectChoose(option, i)"></ion-radio>
-          <img src="../../assets/imagensJanKenPo/{{option.image}}.png" alt="icone">
+          <img class="center" src="../../assets/imagensJanKenPo/{{option.image}}.png" alt="icone">
         </div>
       </ion-radio-group>
-      <img [src]=campoDeBatalha alt="campo de batalha" class="campo-batalha">
       <div class="estatisticas">
         <label>Vitorias: {{ vitorias }}</label>
         <label>Derrotas: {{ derrotas }}</label>
